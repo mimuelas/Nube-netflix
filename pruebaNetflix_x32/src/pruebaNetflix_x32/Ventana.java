@@ -25,24 +25,26 @@ public class Ventana extends JFrame{
     Player player;
     Component video;
     Component controles;
+    String rutaVideo;
     
-    public Ventana(){
-        setTitle("Reproductor de Video con JMF | JonathanMelgoza.com/blog");
+    public Ventana(String rutaVideo){
+        setTitle("Reproductor vídeo Miguel y Juan");
         setSize(800,600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        init();
+        this.rutaVideo=rutaVideo;
+        init(this.rutaVideo);
     }
 
-    public void init() {
+    public void init(String rutaVideo) {
             //panel principal
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
             
             URL url=null;
             try {
-                url = new URL("file:\\C:\\Users\\Juan\\eclipse-workspace\\pruebaNetflix_x32\\videos\\2.MPG");
+                url = new URL("file:\\"+rutaVideo);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
             }
